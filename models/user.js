@@ -2,11 +2,19 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const SALT_ROUNDS = 6;
 
+const jobSchema = new mongoose.Schema({
+    companyName: String,
+    position: String,
+    location: String,
+    url: String,
+    dateApplied: { type: Date, default:Date.now }
+})
+
 const userSchema = new mongoose.Schema({
     name: String,
     email: { type: String, required: true, lowercase: true, unique: true },
     password: String,
-    jobs: []
+    jobs: [jobSchema]
 }, {
         timestamps: true
     });
