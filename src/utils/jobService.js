@@ -14,6 +14,19 @@ function create(job, user) {
     return fetch(BASE_URL + 'create', options).then(res => res.json())
 }
 
+function index(user) {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        },
+        body:JSON.stringify({user})
+    }
+    return fetch(BASE_URL, options).then(res => res.json())
+}
+
 export default {
-    create
+    create,
+    index
 }
