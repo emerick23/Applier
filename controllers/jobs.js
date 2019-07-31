@@ -13,11 +13,12 @@ async function index(req, res) {
 }
 
 async function detail(req, res) {
-    await User.findById(req.body.user._id)
-    .then(user => {
-        let job = user.jobs[req.body.job]
-        res.json(job)
-    })
+    const user = await User.findById(req.body.user._id)
+    const job = user.jobs.id(req.body.job._id)
+    const idx = user.jobs.indexOf(job)
+    user.jobs.splice(idx, 1, req.body.job)
+    user.save()
+    index(req, res)
 }
 
 async function deleteJob(req, res) {

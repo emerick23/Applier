@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import jobService from '../../utils/jobService';
 
-class JobForm extends Component {
+class CreateJobForm extends Component {
 
     state = {
         companyName: '',
@@ -41,4 +41,4 @@ class JobForm extends Component {
 }
 
 
-export default JobForm
+export default CreateJobForm

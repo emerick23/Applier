@@ -38,7 +38,7 @@ function deleteJob(job, user) {
     return fetch(BASE_URL + 'delete', options).then(res => res.json())
 }
 
-function detail(job, user) {
+function update(job, user) {
     const options = {
         method: 'POST',
         headers: {
@@ -53,6 +53,6 @@ function detail(job, user) {
 export default {
     create,
     index,
-    detail,
+    update,
     deleteJob
 }

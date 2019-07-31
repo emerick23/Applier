@@ -1,10 +1,10 @@
 import React from 'react'
-import JobForm from '../../components/JobForm/JobForm'
+import CreateJobForm from '../../components/CreateJobForm/CreateJobForm'
 
 const CreatePage = (props) => {
         return (
             <div>
-                <JobForm
+                <CreateJobForm
                 user={props.user}
                 {...props}
                 />
