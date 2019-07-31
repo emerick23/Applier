@@ -11,6 +11,8 @@ const jobsCtrl = require('../../controllers/jobs');
 router.use(require('../../config/auth'))
 router.post('/create', checkAuth, jobsCtrl.create);
 router.post('/', checkAuth, jobsCtrl.index)
+router.post('/details', checkAuth, jobsCtrl.detail)
+router.post('/delete', checkAuth, jobsCtrl.deleteJob)
 
 function checkAuth(req, res, next) {
     if (req.user) return next();

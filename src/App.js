@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import './App.css';
+import jobService from './utils/jobService'
 import userService from './utils/userService'
 import SignupPage from './pages/SignupPage/SignupPage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import IndexPage from './pages/IndexPage/IndexPage'
 import CreatePage from './pages/CreatePage/CreatePage'
+import JobPage from './pages/JobPage/JobPage'
 import NavBar from './components/NavBar/NavBar'
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: userService.getUser(),
-    }
+  state = {
+    user: userService.getUser(),
+    jobs: []
   }
 
   handleLogout = () => {
@@ -23,6 +23,15 @@ class App extends Component {
 
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
+  }
+
+  handleUpdateJobs = (jobs) => {
+    this.setState({ jobs })
+  }
+
+  async componentDidMount() {
+    const jobs = await jobService.index(this.state.user)
+    this.setState({jobs})
   }
 
   render() {
@@ -50,11 +59,21 @@ class App extends Component {
           <Route exact path='/jobs' render={() =>
             <IndexPage
               user={this.state.user}
+              jobs={this.state.jobs}
+              handleUpdateJobs={this.handleUpdateJobs}
             />
           } />
-          <Route exact path='/add' render={() =>
+          <Route exact path='/add' render={(props) =>
             <CreatePage
               user={this.state.user}
+              {...props}
+            />
+          } />
+          <Route exact path='/job/:idx' render={(props) =>
+            <JobPage
+              {...props}
+              user={this.state.user}
+              jobs={this.state.jobs}
             />
           } />
         </Switch>

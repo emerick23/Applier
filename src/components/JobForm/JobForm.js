@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import jobService from '../../utils/jobService';
 
 class JobForm extends Component {
@@ -12,17 +12,15 @@ class JobForm extends Component {
 
     handleChange = (event) => {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.currentTarget.name]: event.currentTarget.value
         })
     }
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        try {
-            await jobService.create(this.state, this.props.user)
-        } catch (err) {
-            console.log(err)
-        }
+        await jobService.create(this.state, this.props.user)
+        this.props.history.push('/jobs')
+
     }
 
 

@@ -6,6 +6,7 @@ const CreatePage = (props) => {
             <div>
                 <JobForm
                 user={props.user}
+                {...props}
                 />
             </div>
         )
