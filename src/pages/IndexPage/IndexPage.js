@@ -5,6 +5,7 @@ import jobService from '../../utils/jobService'
 class IndexPage extends Component {
 
     async componentDidMount() {
+        console.log('index')
           const jobs = await jobService.index(this.props.user)
           this.props.handleUpdateJobs(jobs)
       }

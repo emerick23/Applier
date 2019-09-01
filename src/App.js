@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import './App.css';
-import jobService from './utils/jobService'
 import userService from './utils/userService'
 import SignupPage from './pages/SignupPage/SignupPage'
 import LoginPage from './pages/LoginPage/LoginPage'
@@ -29,10 +28,10 @@ class App extends Component {
     this.setState({ jobs })
   }
 
-  async componentDidMount() {
-    const jobs = await jobService.index(this.state.user)
-    this.setState({jobs})
-  }
+  // async componentDidMount() {
+  //   const jobs = await jobService.index(this.state.user)
+  //   this.setState({jobs})
+  // }
 
   render() {
     return (
