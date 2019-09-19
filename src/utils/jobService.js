@@ -2,19 +2,7 @@ import tokenService from "./tokenService";
 
 const BASE_URL = '/api/jobs/'
 
-function create(job, user) {
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json',
-            'Authorization': 'Bearer ' + tokenService.getToken()
-        },
-        body: JSON.stringify({job, user})
-    }
-    return fetch(BASE_URL + 'create', options).then(res => res.json())
-}
-
-function index(user) {
+function jobsIndex(user) {
     const options = {
         method: 'POST',
         headers: {
@@ -26,7 +14,31 @@ function index(user) {
     return fetch(BASE_URL, options).then(res => res.json())
 }
 
-function deleteJob(job, user) {
+function jobCreate(job, user) {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        },
+        body: JSON.stringify({job, user})
+    }
+    return fetch(BASE_URL + 'create', options).then(res => res.json())
+}
+
+function jobUpdate(job, user) {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        },
+        body: JSON.stringify({job, user})
+    }
+    return fetch(BASE_URL + 'update', options).then(res => res.json())
+}
+
+function jobDelete(job, user) {
     const options = {
         method: 'POST',
         headers: {
@@ -38,21 +50,9 @@ function deleteJob(job, user) {
     return fetch(BASE_URL + 'delete', options).then(res => res.json())
 }
 
-function update(job, user) {
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json',
-            'Authorization': 'Bearer ' + tokenService.getToken()
-        },
-        body: JSON.stringify({job, user})
-    }
-    return fetch(BASE_URL + 'details', options).then(res => res.json())
-}
-
 export default {
-    create,
-    index,
-    update,
-    deleteJob
+    jobsIndex,
+    jobCreate,
+    jobUpdate,
+    jobDelete
 }

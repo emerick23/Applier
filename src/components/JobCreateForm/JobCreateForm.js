@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import jobService from '../../utils/jobService';
 
-class CreateJobForm extends Component {
+class JobCreateForm extends Component {
 
     state = {
         companyName: '',
@@ -18,12 +18,10 @@ class CreateJobForm extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        await jobService.create(this.state, this.props.user)
+        let job = await jobService.jobCreate(this.state, this.props.user)
+        console.log(job)
         this.props.history.push('/jobs')
-
     }
-
-
 
     render() {
         return (
@@ -41,4 +39,4 @@ class CreateJobForm extends Component {
 }
 
 
-export default CreateJobForm
+export default JobCreateForm

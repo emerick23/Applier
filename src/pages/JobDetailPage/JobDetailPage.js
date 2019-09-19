@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import jobService from '../../utils/jobService';
 
-class JobPage extends Component {
+class JobDetailPage extends Component {
 
     state = {
         companyName: '',
@@ -15,20 +15,22 @@ class JobPage extends Component {
         this.setState({ ...job })
     }
 
-    handleDelete = async () => {
-        await jobService.deleteJob(this.props.match.params.idx, this.props.user)
-        this.props.history.push('/jobs')
-    }
-
     handleChange = (event) => {
         this.setState({
             [event.currentTarget.name]: event.currentTarget.value
         })
     }
 
+    handleDelete = async () => {
+        let deletedJob = await jobService.jobDelete(this.props.match.params.idx, this.props.user)
+        console.log(deletedJob)
+        this.props.history.push('/jobs')
+    }
+
     handleSubmit = async (event) => {
         event.preventDefault()
-        await jobService.update(this.state, this.props.user)
+        let updatedJob = await jobService.jobUpdate(this.state, this.props.user)
+        console.log(updatedJob)
         this.props.history.push('/jobs')
 
     }
@@ -53,4 +55,4 @@ class JobPage extends Component {
 
 
 
-export default JobPage 
+export default JobDetailPage 

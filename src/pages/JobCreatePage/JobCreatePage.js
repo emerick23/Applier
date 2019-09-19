@@ -1,10 +1,10 @@
 import React from 'react'
-import CreateJobForm from '../../components/CreateJobForm/CreateJobForm'
+import JobCreateForm from '../../components/JobCreateForm/JobCreateForm'
 
-const CreatePage = (props) => {
+const JobCreatePage = (props) => {
         return (
             <div>
-                <CreateJobForm
+                <JobCreateForm
                 user={props.user}
                 {...props}
                 />
@@ -13,4 +13,4 @@ const CreatePage = (props) => {
 }
 
 
-export default CreatePage
+export default JobCreatePage

@@ -4,15 +4,20 @@ import './App.css';
 import userService from './utils/userService'
 import SignupPage from './pages/SignupPage/SignupPage'
 import LoginPage from './pages/LoginPage/LoginPage'
-import IndexPage from './pages/IndexPage/IndexPage'
-import CreatePage from './pages/CreatePage/CreatePage'
-import JobPage from './pages/JobPage/JobPage'
+import JobsIndexPage from './pages/JobsIndexPage/JobsIndexPage'
+import JobCreatePage from './pages/JobCreatePage/JobCreatePage'
+import JobDetailPage from './pages/JobDetailPage/JobDetailPage'
 import NavBar from './components/NavBar/NavBar'
 
 class App extends Component {
+
   state = {
     user: userService.getUser(),
     jobs: []
+  }
+
+  handleSignupOrLogin = () => {
+    this.setState({ user: userService.getUser() });
   }
 
   handleLogout = () => {
@@ -20,18 +25,9 @@ class App extends Component {
     this.setState({ user: null });
   }
 
-  handleSignupOrLogin = () => {
-    this.setState({ user: userService.getUser() });
-  }
-
   handleUpdateJobs = (jobs) => {
     this.setState({ jobs })
   }
-
-  // async componentDidMount() {
-  //   const jobs = await jobService.index(this.state.user)
-  //   this.setState({jobs})
-  // }
 
   render() {
     return (
@@ -56,20 +52,20 @@ class App extends Component {
             />
           } />
           <Route exact path='/jobs' render={() =>
-            <IndexPage
+            <JobsIndexPage
               user={this.state.user}
               jobs={this.state.jobs}
               handleUpdateJobs={this.handleUpdateJobs}
             />
           } />
-          <Route exact path='/add' render={(props) =>
-            <CreatePage
-              user={this.state.user}
+          <Route exact path='/addJob' render={(props) =>
+            <JobCreatePage
               {...props}
+              user={this.state.user}
             />
           } />
           <Route exact path='/job/:idx' render={(props) =>
-            <JobPage
+            <JobDetailPage
               {...props}
               user={this.state.user}
               jobs={this.state.jobs}

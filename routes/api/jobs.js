@@ -9,10 +9,10 @@ const jobsCtrl = require('../../controllers/jobs');
 
 /*---------- Protected Routes ----------*/
 router.use(require('../../config/auth'))
-router.post('/create', checkAuth, jobsCtrl.create);
 router.post('/', checkAuth, jobsCtrl.index)
-router.post('/details', checkAuth, jobsCtrl.detail)
-router.post('/delete', checkAuth, jobsCtrl.deleteJob)
+router.post('/create', checkAuth, jobsCtrl.jobCreate)
+router.post('/update', checkAuth, jobsCtrl.jobUpdate)
+router.post('/delete', checkAuth, jobsCtrl.jobDelete)
 
 function checkAuth(req, res, next) {
     if (req.user) return next();
