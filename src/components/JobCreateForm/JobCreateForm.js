@@ -25,12 +25,32 @@ class JobCreateForm extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} type='text' name='companyName' value={this.state.companyName}></input>
-                    <input onChange={this.handleChange} type='text' name='position' value={this.state.position}></input>
-                    <input onChange={this.handleChange} type='text' name='location' value={this.state.location}></input>
-                    <input onChange={this.handleChange} type='text' name='url' value={this.state.url}></input>
+            <div className='row'>
+                <form className='col s12' onSubmit={this.handleSubmit}>
+                    <div className='row'>
+                        <div className='input-field col s12'>
+                            <input id='companyName' onChange={this.handleChange} type='text' name='companyName' value={this.state.companyName}></input>
+                            <label htmlFor='companyName'>Company Name</label>
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='input-field col s12'>
+                            <input id='location' onChange={this.handleChange} type='text' name='location' value={this.state.location}></input>
+                            <label htmlFor='location'>Company Location</label>
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='input-field col s12'>
+                            <input id='position' onChange={this.handleChange} type='text' name='position' value={this.state.position}></input>
+                            <label htmlFor='position'>Job Position</label>
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='input-field col s12'>
+                            <input id='url' onChange={this.handleChange} type='text' name='url' value={this.state.url}></input>
+                            <label htmlFor='url'>Job URL</label>
+                        </div>
+                    </div>
                     <button type='submit'>Submit</button>
                 </form>
             </div>

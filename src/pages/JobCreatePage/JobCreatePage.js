@@ -1,9 +1,10 @@
 import React from 'react'
+import './JobCreatePage.css'
 import JobCreateForm from '../../components/JobCreateForm/JobCreateForm'
 
 const JobCreatePage = (props) => {
         return (
-            <div>
+            <div className='container JobCreatePage'>
                 <JobCreateForm
                 user={props.user}
                 {...props}

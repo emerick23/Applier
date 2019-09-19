@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SignupPage.css'
 import SignupForm from '../../components/SignupForm/SignupForm'
 
 
@@ -14,7 +15,7 @@ class SignupPage extends Component {
 
   render() {
     return (
-      <div className='SignupPage'>
+      <div className='container SignupPage'>
         <SignupForm {...this.props} updateMessage={this.updateMessage} />
         <p>{this.state.message}</p>
       </div>

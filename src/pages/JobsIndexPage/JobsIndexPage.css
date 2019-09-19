@@ -1,0 +1,9 @@
+.JobsIndexPage {
+    margin-top: 8vh;
+    padding-top: 2vh;
+    min-height: 90vh;
+}
+
+.card.small {
+    height: 125px;
+}
