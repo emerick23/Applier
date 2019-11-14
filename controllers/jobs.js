@@ -25,7 +25,7 @@ async function jobUpdate(req, res) {
         const idx = user.jobs.indexOf(oldJob)
         user.jobs.splice(idx, 1, req.body.job)
         user.save()
-        res.json('Job updated sucessfully')
+        res.json('Job updated successfully')
     } catch (err) {
         res.json({ err })
     }

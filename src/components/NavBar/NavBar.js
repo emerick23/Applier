@@ -6,7 +6,7 @@ const NavBar = props => {
 
     let nav = props.user ?
         <ul className='navItems'>
-            <li>Welcome {props.user.name}</li>
+            <li><Link to='/user'>User</Link></li>
             <li><Link to='/jobs'>Jobs</Link></li>
             <li><Link to='/addJob'>Add a Job</Link></li>
             <li><Link to='' onClick={props.handleLogout}>Logout</Link></li>

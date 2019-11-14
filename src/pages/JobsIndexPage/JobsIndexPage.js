@@ -12,14 +12,16 @@ class JobsIndexPage extends Component {
 
     render() {
         let jobs = this.props.jobs.map((job, idx) => (
-            <div className='col s12 m3' key={idx}>
-                <div className='card small'>
+            <Link to={{ pathname: `/job/${idx}` }} key={idx}>
+            <div className='col s12 m3'>
+                <div className='hoverable card small'>
                     <div className='card-content'>
-                        <span className='card-title'><Link to={{ pathname: `/job/${idx}` }}>{job.companyName}</Link></span>
+                        <span className='card-title'>{job.companyName}</span>
                         <p>{job.position}</p>
                     </div>
                 </div>
             </div>
+            </Link>
         ))
         return (
             <div className='JobsIndexPage'>

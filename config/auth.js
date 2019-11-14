@@ -10,9 +10,11 @@ module.exports = function(req, res, next) {
     // Check if token is valid and not expired
     jwt.verify(token, SECRET, function(err, decoded) {
       if (err) {
+        console.log(err)
         next(err);
       } else {
         // It's a valid token, so add user to req
+        console.log('valid token')
         req.user = decoded.user;    
         next();
       }
