@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import jobService from '../../utils/jobService';
+import './JobCreateForm.css'
 
 class JobCreateForm extends Component {
 
@@ -26,7 +27,7 @@ class JobCreateForm extends Component {
     render() {
         return (
             <div className='row'>
-                <form className='col s12' onSubmit={this.handleSubmit}>
+                <form className='col s12' onSubmit={this.handleSubmit} autoComplete='off'>
                     <div className='row'>
                         <div className='input-field col s12'>
                             <input id='companyName' onChange={this.handleChange} type='text' name='companyName' value={this.state.companyName}></input>
@@ -51,7 +52,7 @@ class JobCreateForm extends Component {
                             <label htmlFor='url'>Job URL</label>
                         </div>
                     </div>
-                    <button type='submit'>Submit</button>
+                    <button className='btn waves-effect waves-light subButton' type='submit'>Submit</button>
                 </form>
             </div>
         )

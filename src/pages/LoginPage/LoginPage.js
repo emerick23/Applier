@@ -4,7 +4,7 @@ import './LoginPage.css'
 import userService from '../../utils/userService';
 
 class LoginPage extends Component {
-  
+
   state = {
     email: '',
     pw: ''
@@ -31,27 +31,35 @@ class LoginPage extends Component {
     }
   }
 
+  isFormInvalid() {
+    return !(this.state.email && this.state.pw);
+  }
+
   render() {
     return (
       <div className="container LoginPage">
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+        <div className='row'>
+          <form className="col s12" onSubmit={this.handleSubmit} autoComplete='off'>
+            <div className="row">
+              <div className="input-field col s12">
+                <input id='loginEmail' type="email" value={this.state.email} name="email" onChange={this.handleChange} />
+                <label htmlFor='loginEmail'>Email</label>
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+            <div className="row">
+              <div className="input-field col s12">
+                <input id='loginPassword' type="password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+                <label htmlFor='loginPassword'>Password</label>
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
+            <div className="row">
+              <div className="col s12">
+                <button className="btn waves-effect waves-light subButton" disabled={this.isFormInvalid()}>Log In</button>&nbsp;&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import './SignupForm.css'
 
 class SignupForm extends Component {
 
@@ -8,7 +9,9 @@ class SignupForm extends Component {
     name: '',
     email: '',
     password: '',
-    passwordConf: ''
+    passwordConf: '',
+    personalWebsiteLink: '',
+    linkedInLink: ''
   };
 
   handleChange = (e) => {
@@ -39,31 +42,41 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
+      <div className='row'>
+        <form className="col s12" onSubmit={this.handleSubmit} autoComplete='off' >
+          <div className="row">
+            <div className="input-field col s6">
+              <input id='email' type="email" value={this.state.email} name="email" onChange={this.handleChange} />
+              <label htmlFor='email'>Email</label>
+            </div>
+            <div className="input-field col s6">
+              <input id='name' type="text" value={this.state.name} name="name" onChange={this.handleChange} />
+              <label htmlFor='name'>Name</label>
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+          <div className="row">
+            <div className="input-field col s6">
+              <input id='password' type="password" value={this.state.password} name="password" onChange={this.handleChange} />
+              <label htmlFor='password'>Password</label>
+            </div>
+            <div className="input-field col s6">
+              <input id='personalWebsiteLink' type="url" value={this.state.personalWebsiteLink} name="personalWebsiteLink" onChange={this.handleChange} />
+              <label htmlFor='personalWebsiteLink'>Personal Website Link (Optional)</label>
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
+          <div className="row">
+            <div className="input-field col s6">
+              <input id='confirmPassword' type="password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+              <label htmlFor='confirmPassword'>Confirm Password</label>
+            </div>
+            <div className="input-field col s6">
+              <input id='linkedInLink' type="url" value={this.state.linkedInLink} name="linkedInLink" onChange={this.handleChange} />
+              <label htmlFor='linkedInLink'>LinkedIn Link (Optional)</label>
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+          <div className="row">
+            <div className="col s12">
+              <button className="btn waves-effect waves-light subButton" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
             </div>
           </div>

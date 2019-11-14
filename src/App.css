@@ -4,10 +4,9 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: gainsboro;
+  background-color: #90a4ae;
   display: flex;
   flex-direction: column;
   justify-content: center;
   z-index: 9999;
 }
-

@@ -14,7 +14,6 @@ module.exports = function(req, res, next) {
         next(err);
       } else {
         // It's a valid token, so add user to req
-        console.log('valid token')
         req.user = decoded.user;    
         next();
       }

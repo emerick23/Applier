@@ -1,9 +1,10 @@
 import React from 'react'
+import './JobUpdateForm.css'
 
 const JobUpdateForm = props => {
     return (
         <div className='row'>
-            <form className='col s12' onSubmit={props.handleSubmit}>
+            <form className='col s12' onSubmit={props.handleSubmit} autoComplete='off'>
                 <div className='row'>
                     <div className='input-field col s12'>
                         <input id='companyName' onChange={props.handleChange} type='text' name='companyName' value={props.companyName}></input>
@@ -28,7 +29,7 @@ const JobUpdateForm = props => {
                         <label className='active' htmlFor='url'>Job URL</label>
                     </div>
                 </div>
-                <button type='submit'>Submit</button>
+                <button className='btn waves-effect waves-light subButton' type='submit'>Submit</button>
             </form>
         </div>
     )

@@ -11,10 +11,12 @@ const jobSchema = new mongoose.Schema({
 })
 
 const userSchema = new mongoose.Schema({
-    name: String,
+    name: { type: String, required: true},
     email: { type: String, required: true, lowercase: true, unique: true },
     password: String,
-    jobs: [jobSchema]
+    personalWebsiteLink: String,
+    linkedInLink: String,
+    jobs: [jobSchema],
 }, {
         timestamps: true
     });

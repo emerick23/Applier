@@ -74,6 +74,7 @@ class App extends Component {
           } />
           <Route exact path='/user' render={(props) =>
             <UserPage
+            {...props}
             user={this.state.user}
             />
           } />
