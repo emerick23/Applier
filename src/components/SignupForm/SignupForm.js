@@ -76,7 +76,7 @@ class SignupForm extends Component {
           </div>
           <div className="row">
             <div className="col s12">
-              <button className="btn waves-effect waves-light subButton" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+              <button className="btn" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
             </div>
           </div>

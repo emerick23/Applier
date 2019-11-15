@@ -7,7 +7,7 @@ const UserPage = (props) => {
         <div className='container UserPage'>
             <div className='section'>
                 <h4>Links</h4>
-                <div className='divider'></div>
+                <div className='divider divideLine'></div>
             </div>
             <table>
                 <tbody>

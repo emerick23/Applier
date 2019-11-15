@@ -38,6 +38,10 @@ class LoginPage extends Component {
   render() {
     return (
       <div className="container LoginPage">
+        <div className='section'>
+          <h4>Login</h4>
+          <div className='divider divideLine'></div>
+        </div>
         <div className='row'>
           <form className="col s12" onSubmit={this.handleSubmit} autoComplete='off'>
             <div className="row">
@@ -54,7 +58,7 @@ class LoginPage extends Component {
             </div>
             <div className="row">
               <div className="col s12">
-                <button className="btn waves-effect waves-light subButton" disabled={this.isFormInvalid()}>Log In</button>&nbsp;&nbsp;&nbsp;
+                <button className="btn" disabled={this.isFormInvalid()}>Log In</button>&nbsp;&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
               </div>
             </div>

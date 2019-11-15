@@ -10,3 +10,18 @@
   justify-content: center;
   z-index: 9999;
 }
+
+.btn {
+  background-color: #90a4ae !important;
+  color: black;
+}
+
+.btn:hover {
+  background-color: #bbdefb !important;
+}
+
+.HomePage {
+  margin-top: 8vh;
+  padding-top: 2vh;
+  height: 92vh;
+}

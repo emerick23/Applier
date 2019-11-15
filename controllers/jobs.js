@@ -42,11 +42,22 @@ async function jobDelete(req, res) {
     }
 }
 
+async function jobDetail(req, res) {
+    try {
+        const user = await User.findById(req.body.user._id)
+        const job = user.jobs[req.body.job]
+        res.json(job)
+    } catch (err) {
+        res.json({ err })
+    }
+}
+
 
 
 module.exports = {
     index,
     jobCreate,
     jobUpdate,
-    jobDelete
+    jobDelete,
+    jobDetail
 }

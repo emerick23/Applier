@@ -52,7 +52,7 @@ class JobCreateForm extends Component {
                             <label htmlFor='url'>Job URL</label>
                         </div>
                     </div>
-                    <button className='btn waves-effect waves-light subButton' type='submit'>Submit</button>
+                    <button className='btn' type='submit'>Submit</button>
                 </form>
             </div>
         )

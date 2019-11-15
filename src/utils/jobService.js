@@ -9,9 +9,21 @@ function jobsIndex(user) {
             'Content-type': 'application/json',
             'Authorization': 'Bearer ' + tokenService.getToken()
         },
-        body:JSON.stringify({user})
+        body: JSON.stringify({user})
     }
     return fetch(BASE_URL, options).then(res => res.json())
+}
+
+function findJob(job, user) {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        },
+        body: JSON.stringify({job, user})
+    }
+    return fetch(BASE_URL + 'detail', options).then(res => res.json())
 }
 
 function jobCreate(job, user) {
@@ -54,5 +66,6 @@ export default {
     jobsIndex,
     jobCreate,
     jobUpdate,
-    jobDelete
+    jobDelete,
+    findJob
 }

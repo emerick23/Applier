@@ -10,7 +10,7 @@ let NavBar = props => {
                     <li><Link to='/user'>{props.user.name}</Link></li>
                     <li><Link to='/jobs'>Jobs</Link></li>
                     <li><Link to='/addJob'>Add a Job</Link></li>
-                    <li><Link to='' onClick={props.handleLogout}>Logout</Link></li>
+                    <li><Link to='/' onClick={props.handleLogout}>Logout</Link></li>
                 </ul>
             </div>
         )
@@ -20,7 +20,7 @@ let NavBar = props => {
                 <ul className='navItems'>
                     <li><Link to='/jobs'>Jobs</Link></li>
                     <li><Link to='/addJob'>Add a Job</Link></li>
-                    <li><Link to='' onClick={props.handleLogout}>Logout</Link></li>
+                    <li><Link to='/' onClick={props.handleLogout}>Logout</Link></li>
                 </ul>
             </div>
         )

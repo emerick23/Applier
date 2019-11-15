@@ -13,6 +13,7 @@ router.post('/', checkAuth, jobsCtrl.index)
 router.post('/create', checkAuth, jobsCtrl.jobCreate)
 router.post('/update', checkAuth, jobsCtrl.jobUpdate)
 router.post('/delete', checkAuth, jobsCtrl.jobDelete)
+router.post('/detail', checkAuth, jobsCtrl.jobDetail)
 
 function checkAuth(req, res, next) {
     if (req.user) return next();

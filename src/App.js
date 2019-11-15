@@ -8,6 +8,7 @@ import LoginPage from './pages/LoginPage/LoginPage'
 import JobsIndexPage from './pages/JobsIndexPage/JobsIndexPage'
 import JobCreatePage from './pages/JobCreatePage/JobCreatePage'
 import JobDetailPage from './pages/JobDetailPage/JobDetailPage'
+import HomePage from './pages/HomePage/HomePage'
 import NavBar from './components/NavBar/NavBar'
 
 class App extends Component {
@@ -69,13 +70,17 @@ class App extends Component {
             <JobDetailPage
               {...props}
               user={this.state.user}
-              jobs={this.state.jobs}
             />
           } />
           <Route exact path='/user' render={(props) =>
             <UserPage
             {...props}
             user={this.state.user}
+            />
+          } />
+          <Route exact path='/' render={(props) =>
+            <HomePage
+            {...props}
             />
           } />
         </Switch>

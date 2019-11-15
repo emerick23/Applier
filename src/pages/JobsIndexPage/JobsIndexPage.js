@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './JobsIndexPage.css'
 import jobService from '../../utils/jobService'
+import moment from 'moment'
 
 class JobsIndexPage extends Component {
 
@@ -17,7 +18,8 @@ class JobsIndexPage extends Component {
                         <div className='hoverable card small blue-grey lighten-4'>
                             <div className='card-content'>
                                 <span className='card-title truncate'>{job.companyName}</span>
-                                <p>{job.position}</p>
+                                <p className='black-text'>{job.position}</p>
+                                <p className='black-text'>{moment(job.dateApplied).format('M/D/YY')}</p>
                             </div>
                         </div>
                     </div>
